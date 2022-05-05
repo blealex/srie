@@ -23,7 +23,7 @@ async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
             [
-                InlineKeyboardButton('Updates Channel🍿🎬', url='https://t.me/Movie_Collections_Bot')
+                InlineKeyboardButton('Updates Channel🍿🎬', url='https://t.me/NetflixHDserie')
             ],
             [
                 InlineKeyboardButton('Help ⚙', url=f"https://t.me/{temp.U_NAME}?start=help"),
@@ -47,8 +47,8 @@ async def start(client, message):
             InlineKeyboardButton('Search Here 🔍', switch_inline_query_current_chat=''),
             InlineKeyboardButton('Updates Channel🍿🎬', url='https://t.me/Movie_Collections_Bot')
             ],[
-            InlineKeyboardButton('Series Bot🎥', url='https://t.me/NetflixHDserie'),
-            InlineKeyboardButton('Adult Bot🔞', url='https://t.me/AdultEmpire_xxx')
+            InlineKeyboardButton('Movie Bot 🎥', url='https://t.me/Movie_Collections_Bot'),
+            InlineKeyboardButton('Adult Bot 🔞', url='https://t.me/AdultEmpire_xxx')
             ],[
             InlineKeyboardButton('Help ⚙', callback_data='help'),
             InlineKeyboardButton('🥰🅾︎🆆︎🅽︎🅴︎🆁︎', callback_data='owner')
@@ -96,7 +96,7 @@ async def start(client, message):
             InlineKeyboardButton('Search Here 🔍', switch_inline_query_current_chat=''),
             InlineKeyboardButton('Updates Channel🍿🎬', url='https://t.me/Movie_Collections_Bot')
             ], [
-            InlineKeyboardButton('Series Bot 🎥', url='https://t.me/NetflixHDserie'),
+            InlineKeyboardButton('Movie Bot 🎥', url='https://t.me/Movie_Collections_Bot'),
             InlineKeyboardButton('Adult Bot 🔞', url='https://t.me/AdultEmpire_xxx')
             ],[
             InlineKeyboardButton('Help ⚙', callback_data='help'),
