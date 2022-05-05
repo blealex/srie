@@ -52,7 +52,7 @@ async def addfilter(client, message):
 
 
     if len(args) < 2:
-        await message.reply_text("Command Incomplete😫 :(", quote=True)
+        await message.reply_text("Sweetie your command is Incomplete😫 :(", quote=True)
         return
 
     extracted = split_quotes(args[1])
