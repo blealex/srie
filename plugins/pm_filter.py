@@ -127,7 +127,7 @@ async def advantage_spoll_choker(bot, query):
     if not movies:
         return await query.answer("Sweetie you are clicking on an old button which has expired😒.", show_alert=True)
     movie = movies[(int(movie_))]
-    await query.answer('Sweetie, I am checking for that Movie on my database...⏳')
+    await query.answer('Sweetie, I am checking for that Series on my database...⏳')
     k = await manual_filters(bot, query.message, text=movie)
     if k == False:
         files, offset, total_results = await get_search_results(movie, offset=0, filter=True)
@@ -135,7 +135,7 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit('Sorry Sweetheart, that Movie you are looking for, is not on my DataBase. Use @mcrequestbot to request for it. please make sure you follow the request format there or my owner will skip your request. Thank youuu 🥰')
+            k = await query.message.edit('Sorry Sweetheart, that Series you are looking for, is not on my DataBase. Use @mcrequestbot to request for it. please make sure you follow the request format there or my owner will skip your request. Thank youuu 🥰')
             await asyncio.sleep(30)
             await k.delete()
 
@@ -364,7 +364,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     caption=f_caption,
                     protect_content=True if ident == "filep" else False 
                 )
-                await query.answer('My love check your private message, I have sent you the files!!😁🤝', show_alert=True)
+                await query.answer('My love check your private message, I have sent you the file!!😁🤝', show_alert=True)
         except UserIsBlocked:
             await query.answer('Unblock the bot mahn !', show_alert=True)
         except PeerIdInvalid:
@@ -409,7 +409,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Search Here 🔍', switch_inline_query_current_chat=''),
             InlineKeyboardButton('Updates Channel🍿🎬', url='https://t.me/Movie_Collections_Bot')
         ], [
-            InlineKeyboardButton('Series Bot 🎥', url='https://t.me/NetflixHDserie'),
+            InlineKeyboardButton('Movie Bot 🎥', url='https://t.me/Movie_Collections_Bot'),
             InlineKeyboardButton('Adult Bot 🔞', url='https://t.me/AdultEmpire_xxx')
         ], [
             InlineKeyboardButton('Help ⚙', callback_data='help'),
@@ -672,14 +672,14 @@ async def auto_filter(client, msg, spoll=False):
              InlineKeyboardButton(text="NEXT ⏭️", callback_data=f"next_{req}_{key}_{offset}")]
         )
         btn.insert(0,
-            [InlineKeyboardButton(text="🍿 JOIN OUR MOVIE CHANNEL 🍿",url="https://t.me/+R59lJd9RGV1iNzZk")]
+            [InlineKeyboardButton(text="🍿 JOIN OUR SERIES CHANNEL 🍿",url="https://t.me/+YqsbYu4L9NExNDI0")]
         )
     else:
         btn.append(
             [InlineKeyboardButton(text="🗓 1/1", callback_data="pages")]
         )
         btn.insert(0,
-            [InlineKeyboardButton(text="🍿 JOIN OUR MOVIE CHANNEL 🍿",url="https://t.me/+R59lJd9RGV1iNzZk")]
+            [InlineKeyboardButton(text="🍿 JOIN OUR SERIES CHANNEL 🍿",url="https://t.me/+YqsbYu4L9NExNDI0")]
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
