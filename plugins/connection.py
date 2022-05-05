@@ -12,7 +12,7 @@ logger.setLevel(logging.ERROR)
 async def addconnection(client, message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
-        return await message.reply(f"You are anonymous admin. Use /connect {message.chat.id} in PM")
+        return await message.reply(f"Sweetie you are an anonymous admin. Use /connect {message.chat.id} in PM")
     chat_type = message.chat.type
 
     if chat_type == "private":
@@ -20,7 +20,7 @@ async def addconnection(client, message):
             cmd, group_id = message.text.split(" ", 1)
         except:
             await message.reply_text(
-                "<b>Enter in correct format!</b>\n\n"
+                "<b>Babe, please enter in the correct format!</b>\n\n"
                 "<code>/connect groupid</code>\n\n"
                 "<i>Get your Group id by adding this bot to your group and use  <code>/id</code></i>",
                 quote=True
@@ -37,12 +37,12 @@ async def addconnection(client, message):
                 and st.status != "creator"
                 and userid not in ADMINS
         ):
-            await message.reply_text("You should be an admin in Given group!", quote=True)
+            await message.reply_text("Sweetie you should be an admin in Given group!", quote=True)
             return
     except Exception as e:
         logger.exception(e)
         await message.reply_text(
-            "Invalid Group ID!\n\nIf correct, Make sure I'm present in your group!!",
+            "Invalid Group ID😑!\n\nIf correct, Make sure I'm present in your group!!",
             quote=True,
         )
 
@@ -56,7 +56,7 @@ async def addconnection(client, message):
             addcon = await add_connection(str(group_id), str(userid))
             if addcon:
                 await message.reply_text(
-                    f"Successfully connected to **{title}**\nNow manage your group from my pm !",
+                    f"Sweetie, I am successfully connected to **{title}**\nNow manage your group from my pm !",
                     quote=True,
                     parse_mode="md"
                 )
@@ -68,14 +68,14 @@ async def addconnection(client, message):
                     )
             else:
                 await message.reply_text(
-                    "You're already connected to this chat!",
+                    "Babe you're already connected to this chat!",
                     quote=True
                 )
         else:
-            await message.reply_text("Add me as an admin in group", quote=True)
+            await message.reply_text("Sweetie add me as an admin in group", quote=True)
     except Exception as e:
         logger.exception(e)
-        await message.reply_text('Some error occurred! Try again later.', quote=True)
+        await message.reply_text('My love, some error occurred! please try again later.', quote=True)
         return
 
 
@@ -83,7 +83,7 @@ async def addconnection(client, message):
 async def deleteconnection(client, message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
-        return await message.reply(f"You are anonymous admin. Use /connect {message.chat.id} in PM")
+        return await message.reply(f"Sweetie you are an anonymous admin. Use /connect {message.chat.id} in my PM")
     chat_type = message.chat.type
 
     if chat_type == "private":
@@ -104,7 +104,7 @@ async def deleteconnection(client, message):
         if delcon:
             await message.reply_text("Successfully disconnected from this chat", quote=True)
         else:
-            await message.reply_text("This chat isn't connected to me!\nDo /connect to connect.", quote=True)
+            await message.reply_text("Babe this chat isn't connected to me!\nDo /connect to connect.", quote=True)
 
 
 @Client.on_message(filters.private & filters.command(["connections"]))
@@ -114,7 +114,7 @@ async def connections(client, message):
     groupids = await all_connections(str(userid))
     if groupids is None:
         await message.reply_text(
-            "There are no active connections!! Connect to some groups first.",
+            "Sweetie there are no active connections!! please Connect me to some groups first.",
             quote=True
         )
         return
@@ -136,12 +136,12 @@ async def connections(client, message):
             pass
     if buttons:
         await message.reply_text(
-            "Your connected group details ;\n\n",
+            "Sweetie these are your connected group details ;\n\n",
             reply_markup=InlineKeyboardMarkup(buttons),
             quote=True
         )
     else:
         await message.reply_text(
-            "There are no active connections!! Connect to some groups first.",
+            "Sweetie, there are no active connections!! please Connect to some groups first.",
             quote=True
         )
