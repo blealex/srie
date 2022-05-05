@@ -142,6 +142,6 @@ async def connections(client, message):
         )
     else:
         await message.reply_text(
-            "Sweetie, there are no active connections!! please Connect to some groups first.",
+            "Sweetie, there are no active connections!! please Connect me to some groups first.",
             quote=True
         )
