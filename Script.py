@@ -1,8 +1,7 @@
 class script(object):
     START_TXT = """<b>𝙷𝙴𝙻𝙾 {} 🥰🙋‍♀</b>
     
-<b>B
-Sweetheart, My Name Is <a href=https://t.me/{}>{}</a>. I'm a Powerful Movie Auto-Filter Bot.</b>
+<b>Sweetheart, My Name Is <a href=https://t.me/{}>{}</a>. I'm a Powerful Movie Auto-Filter Bot.</b>
 
 <b>You Can Use Me As An Auto-filter in Your Movie Group.... Its Easy To Use Me; Just Add Me To Your Group As Admin, Thats All, i will Provide Tons of series There..😍</b>"""
     HELP_TXT = """𝙷𝙴𝚈 {}
