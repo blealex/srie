@@ -1,9 +1,9 @@
 class script(object):
     START_TXT = """<b>𝙷𝙴𝙻𝙾 {} 🥰🙋‍♀</b>
     
-<b>Sweetheart, My Name Is <a href=https://t.me/{}>{}</a>. I'm a Powerful Movie Auto-Filter Bot.</b>
+<b>Sweetheart, My Name Is <a href=https://t.me/{}>{}</a>. I'm a Powerful Series Auto-Filter Bot.</b>
 
-<b>You Can Use Me As An Auto-filter in Your Movie Group.... Its Easy To Use Me; Just Add Me To Your Group As Admin, Thats All, i will Provide Tons of series There..😍</b>"""
+<b>You Can Use Me As An Auto-filter in Your Series Group.... Its Easy To Use Me; Just Add Me To Your Group As Admin, Thats All, i will Provide Tons of series There..😍</b>"""
     HELP_TXT = """𝙷𝙴𝚈 {}
 
 <b>○ DONT SPAM ME...🤒</b>
@@ -40,7 +40,7 @@ class script(object):
 3. Buttons should be properly parsed as markdown format
 
 <b>URL buttons:</b>
-<code>[Button Text](buttonurl:https://t.me/+R59lJd9RGV1iNzZk)</code>
+<code>[Button Text](buttonurl:https://t.me/+YqsbYu4L9NExNDI0)</code>
 
 <b>Alert buttons:</b>
 <code>[Button Text](buttonalert:This is an alert message)</code>"""
