@@ -23,10 +23,10 @@ async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
             [
-                InlineKeyboardButton('🎬 Updates', url='https://t.me/filesharebotusers')
+                InlineKeyboardButton('Updates Channel🍿🎬', url='https://t.me/Movie_Collections_Bot')
             ],
             [
-                InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help"),
+                InlineKeyboardButton('Help ⚙', url=f"https://t.me/{temp.U_NAME}?start=help"),
             ]
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -44,11 +44,14 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('🔎Search🔍', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🎬Movies', url='https://t.me/filesharebotusers')
+            InlineKeyboardButton('Search Here 🔍', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('Updates Channel🍿🎬', url='https://t.me/Movie_Collections_Bot')
             ],[
-            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
-            InlineKeyboardButton('😎🅾︎🆆︎🅽︎🅴︎🆁︎', callback_data='owner')
+            InlineKeyboardButton('Series Bot🎥', url='https://t.me/NetflixHDserie'),
+            InlineKeyboardButton('Adult Bot🔞', url='https://t.me/AdultEmpire_xxx')
+            ],[
+            InlineKeyboardButton('Help ⚙', callback_data='help'),
+            InlineKeyboardButton('🥰🅾︎🆆︎🅽︎🅴︎🆁︎', callback_data='owner')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -62,12 +65,12 @@ async def start(client, message):
         try:
             invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
         except ChatAdminRequired:
-            logger.error("Make sure Bot is admin in Forcesub channel")
+            logger.error("Sweetie make sure Bot is an admin in Forcesub channel")
             return
         btn = [
             [
                 InlineKeyboardButton(
-                    "🤖 Join Updates Channel", url=invite_link.invite_link
+                    "♻️ JOIN MY UPDATES CHANNEL", url=invite_link.invite_link
                 )
             ]
         ]
@@ -90,11 +93,14 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('🔎Search🔍', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🎬 Updates', url='https://t.me/filesharebotusers')
+            InlineKeyboardButton('Search Here 🔍', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('Updates Channel🍿🎬', url='https://t.me/Movie_Collections_Bot')
+            ], [
+            InlineKeyboardButton('Series Bot 🎥', url='https://t.me/NetflixHDserie'),
+            InlineKeyboardButton('Adult Bot 🔞', url='https://t.me/AdultEmpire_xxx')
             ],[
-            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
-            InlineKeyboardButton('😎🅾︎🆆︎🅽︎🅴︎🆁︎', callback_data='owner')
+            InlineKeyboardButton('Help ⚙', callback_data='help'),
+            InlineKeyboardButton('🥰🅾︎🆆︎🅽︎🅴︎🆁︎', callback_data='owner')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -111,7 +117,7 @@ async def start(client, message):
         file_id = data
         pre = ""
     if data.split("-", 1)[0] == "BATCH":
-        sts = await message.reply("Please wait")
+        sts = await message.reply("Sweetie please wait")
         file_id = data.split("-", 1)[1]
         msgs = BATCH_FILES.get(file_id)
         if not msgs:
@@ -227,7 +233,7 @@ async def start(client, message):
             return
         except:
             pass
-        return await message.reply('No such file exist.')
+        return await message.reply('Sweetie no such file exist.')
     files = files_[0]
     title = files.file_name
     size=get_size(files.file_size)
@@ -294,7 +300,7 @@ async def delete(bot, message):
     if reply and reply.media:
         msg = await message.reply("Processing...⏳", quote=True)
     else:
-        await message.reply('Reply to file with /delete which you want to delete', quote=True)
+        await message.reply('Sweeetie please reply to a file with /delete which you want to delete', quote=True)
         return
 
     for file_type in ("document", "video", "audio"):
@@ -302,7 +308,7 @@ async def delete(bot, message):
         if media is not None:
             break
     else:
-        await msg.edit('This is not supported file format')
+        await msg.edit('Sweetie this is not supported file format')
         return
     
     file_id, file_ref = unpack_new_file_id(media.file_id)
@@ -311,7 +317,7 @@ async def delete(bot, message):
         '_id': file_id,
     })
     if result.deleted_count:
-        await msg.edit('File is successfully deleted from database')
+        await msg.edit('My love, the file has been successfully deleted from my database')
     else:
         file_name = re.sub(r"(_|\-|\.|\+)", " ", str(media.file_name))
         result = await Media.collection.delete_many({
@@ -320,7 +326,7 @@ async def delete(bot, message):
             'mime_type': media.mime_type
             })
         if result.deleted_count:
-            await msg.edit('File is successfully deleted from database')
+            await msg.edit('Sweetie, the file has been successfully deleted from my database')
         else:
             # files indexed before https://github.com/EvamariaTG/EvaMaria/commit/f3d2a1bcb155faf44178e5d7a685a1b533e714bf#diff-86b613edf1748372103e94cacff3b578b36b698ef9c16817bb98fe9ef22fb669R39 
             # have original file name.
@@ -330,15 +336,15 @@ async def delete(bot, message):
                 'mime_type': media.mime_type
             })
             if result.deleted_count:
-                await msg.edit('File is successfully deleted from database')
+                await msg.edit('My love, the file was been successfully deleted from my database')
             else:
-                await msg.edit('File not found in database')
+                await msg.edit('sweetie that file is missing from my database')
 
 
 @Client.on_message(filters.command('deleteall') & filters.user(ADMINS))
 async def delete_all_index(bot, message):
     await message.reply_text(
-        'This will delete all indexed files.\nDo you want to continue??',
+        'Sweetheart, this will delete all indexed files.\nAre you sure you want to continue??',
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -360,15 +366,15 @@ async def delete_all_index(bot, message):
 @Client.on_callback_query(filters.regex(r'^autofilter_delete'))
 async def delete_all_index_confirm(bot, message):
     await Media.collection.drop()
-    await message.answer('Piracy Is Crime')
-    await message.message.edit('Succesfully Deleted All The Indexed Files.')
+    await message.answer('Piracy Is a Crime')
+    await message.message.edit('Okay sweetie, I have Succesfully Deleted All The Indexed Files from my Database.')
 
 
 @Client.on_message(filters.command('settings'))
 async def settings(client, message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
-        return await message.reply(f"You are anonymous admin. Use /connect {message.chat.id} in PM")
+        return await message.reply(f"Sweetie you are an anonymous admin. Use /connect {message.chat.id} in PM")
     chat_type = message.chat.type
 
     if chat_type == "private":
@@ -379,10 +385,10 @@ async def settings(client, message):
                 chat = await client.get_chat(grpid)
                 title = chat.title
             except:
-                await message.reply_text("Make sure I'm present in your group!!", quote=True)
+                await message.reply_text("Sweetie Make sure I'm present in your group!!", quote=True)
                 return
         else:
-            await message.reply_text("I'm not connected to any groups!", quote=True)
+            await message.reply_text("Sweetheart, I'm not connected to any groups!", quote=True)
             return
 
     elif chat_type in ["group", "supergroup"]:
@@ -483,7 +489,7 @@ async def save_template(client, message):
     sts = await message.reply("Checking template")
     userid = message.from_user.id if message.from_user else None
     if not userid:
-        return await message.reply(f"You are anonymous admin. Use /connect {message.chat.id} in PM")
+        return await message.reply(f"Sweetie you are an anonymous admin. Use /connect {message.chat.id} in PM")
     chat_type = message.chat.type
 
     if chat_type == "private":
@@ -494,10 +500,10 @@ async def save_template(client, message):
                 chat = await client.get_chat(grpid)
                 title = chat.title
             except:
-                await message.reply_text("Make sure I'm present in your group!!", quote=True)
+                await message.reply_text("Sweetie make sure I'm present in your group!!", quote=True)
                 return
         else:
-            await message.reply_text("I'm not connected to any groups!", quote=True)
+            await message.reply_text("Babe I'm not connected to any groups!", quote=True)
             return
 
     elif chat_type in ["group", "supergroup"]:
@@ -519,4 +525,4 @@ async def save_template(client, message):
         return await sts.edit("No Input!!")
     template = message.text.split(" ", 1)[1]
     await save_group_settings(grp_id, 'template', template)
-    await sts.edit(f"Successfully changed template for {title} to\n\n{template}")
+    await sts.edit(f"Sweetheart, I have successfully changed template for {title} to\n\n{template}")
