@@ -224,7 +224,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=keyboard,
             parse_mode="md"
         )
-        return await query.answer('Babe Piracy Is a Crime, stop it.😑')
+        return await query.answer('I am processing your request🥰')
     elif "connectcb" in query.data:
         await query.answer()
 
@@ -268,7 +268,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 f"Some error occurred!!",
                 parse_mode="md"
             )
-        return await query.answer('My love, Piracy Is Crime😀')
+        return await query.answer('your request is been processed🤝')
     elif "deletecb" in query.data:
         await query.answer()
 
@@ -297,7 +297,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit_text(
                 "Sweetie there are no active connections!! Connect me to some groups first.",
             )
-            return await query.answer('My love, Piracy Is a Big Crime')
+            return await query.answer('I am processing your request🤝')
         buttons = []
         for groupid in groupids:
             try:
@@ -406,7 +406,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ], [
-            InlineKeyboardButton('Search Here 🔍', switch_inline_query_current_chat=''),
             InlineKeyboardButton('Updates Channel🍿🎬', url='https://t.me/Lordship_series')
         ], [
             InlineKeyboardButton('Movie Bot 🎥', url='https://t.me/Lordship_Movies'),
@@ -614,7 +613,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ]
             reply_markup = InlineKeyboardMarkup(buttons)
             await query.message.edit_reply_markup(reply_markup)
-    await query.answer('My love Piracy Is a Crime')
+    await query.answer('your request is been processed🤝')
 
 
 async def auto_filter(client, msg, spoll=False):
