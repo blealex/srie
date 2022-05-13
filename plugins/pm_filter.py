@@ -404,8 +404,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer()
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-        ], [
             InlineKeyboardButton('Updates Channel🍿🎬', url='https://t.me/Lordship_series')
         ], [
             InlineKeyboardButton('Movie Bot 🎥', url='https://t.me/Lordship_Movies'),
