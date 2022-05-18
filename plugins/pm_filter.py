@@ -669,14 +669,14 @@ async def auto_filter(client, msg, spoll=False):
              InlineKeyboardButton(text="NEXT ⏭️", callback_data=f"next_{req}_{key}_{offset}")]
         )
         btn.insert(0,
-            [InlineKeyboardButton(text="🍿 JOIN OUR SERIES CHANNEL 🍿",url="https://t.me/+YqsbYu4L9NExNDI0")]
+            [InlineKeyboardButton(text="🍿 JOIN OUR SERIES CHANNEL 🍿",url="https://t.me/+irawY-tWxtRlNDg8")]
         )
     else:
         btn.append(
             [InlineKeyboardButton(text="🗓 1/1", callback_data="pages")]
         )
         btn.insert(0,
-            [InlineKeyboardButton(text="🍿 JOIN OUR SERIES CHANNEL 🍿",url="https://t.me/+YqsbYu4L9NExNDI0")]
+            [InlineKeyboardButton(text="🍿 JOIN OUR SERIES CHANNEL 🍿",url="https://t.me/+irawY-tWxtRlNDg8")]
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
