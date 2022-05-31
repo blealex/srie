@@ -44,6 +44,8 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('Updates Channel🍿🎬', url='https://t.me/Lordship_series')
             ],[
+            InlineKeyboardButton('Search Here 🔍', switch_inline_query_current_chat=''),
+            ],[
             InlineKeyboardButton('Movie Bot 🎥', url='https://t.me/Lordship_Movies'),
             InlineKeyboardButton('Adult Bot 🔞', url='https://t.me/AdultEmpire_xxx')
             ],[
@@ -89,6 +91,8 @@ async def start(client, message):
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
             InlineKeyboardButton('Updates Channel🍿🎬', url='https://t.me/Lordship_series')
+            ],[
+            InlineKeyboardButton('Search Here 🔍', switch_inline_query_current_chat=''),
             ], [
             InlineKeyboardButton('Movie Bot 🎥', url='https://t.me/Lordship_Movies'),
             InlineKeyboardButton('Adult Bot 🔞', url='https://t.me/AdultEmpire_xxx')
