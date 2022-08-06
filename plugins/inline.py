@@ -34,7 +34,7 @@ async def answer(bot, query):
         await query.answer(results=[],
                            cache_time=0,
                            switch_pm_text='My love🥰, Please Join my updates channel in other to use the bot',
-                           switch_pm_parameter="♻️ JOIN MY UPDATES CHANNEL")
+                           switch_pm_parameter="♻️ CLICK HERE AND JOIN MY UPDATES CHANNEL")
         return
 
     results = []
