@@ -48,7 +48,7 @@ async def next_page(bot, query):
         offset = 0
     search = BUTTONS.get(key)
     if not search:
-        await query.answer("Sweetie, You are using one of my old messages, please send the request again.", show_alert=True)
+        await query.answer("Sweetie, You are using one of my old messages, please send a new request again.", show_alert=True)
         return
 
     files, n_offset, total = await get_search_results(search, offset=offset, filter=True)
@@ -120,7 +120,7 @@ async def next_page(bot, query):
 async def advantage_spoll_choker(bot, query):
     _, user, movie_ = query.data.split('#')
     if int(user) != 0 and query.from_user.id != int(user):
-        return await query.answer("Not so fast sweetie 😀", show_alert=True)
+        return await query.answer("Not so fast sweetie. search for Your Own series!! 😀", show_alert=True)
     if movie_ == "close_spellcheck":
         return await query.message.delete()
     movies = SPELL_CHECK.get(query.message.reply_to_message.message_id)
@@ -135,8 +135,8 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit('Sorry Sweetheart, that Series you are looking for, is not on my DataBase. Use @mcrequestbot to request for it. please make sure you follow the request format there or my owner will skip your request. Thank youuu 🥰')
-            await asyncio.sleep(30)
+            k = await query.message.edit('Sorry Sweetheart, that Series you are looking for, is not on my DataBase. First of all, Read the pinned message and follow the instructions and examples I gave there. if its still unavailable, then Use @mcrequestbot to request for it. please make sure you follow the request format there or my owner will skip your request. Thank youuu 🥰')
+            await asyncio.sleep(50)
             await k.delete()
 
 
@@ -366,7 +366,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 )
                 await query.answer('My love check your private message, I have sent you the file!!😁🤝', show_alert=True)
         except UserIsBlocked:
-            await query.answer('Unblock the bot mahn !', show_alert=True)
+            await query.answer('Sweetie please Unblock the bot! (Go to your settings and check privacy settings and the check your block users and unblock the bot there.)', show_alert=True)
         except PeerIdInvalid:
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
         except Exception as e:
@@ -671,14 +671,14 @@ async def auto_filter(client, msg, spoll=False):
              InlineKeyboardButton(text="NEXT ⏭️", callback_data=f"next_{req}_{key}_{offset}")]
         )
         btn.insert(0,
-            [InlineKeyboardButton(text="🔞 JOIN OUR ADULT CHANNEL 🔞",url="https://t.me/+83dNsgyhMmI4OTNk")]
+            [InlineKeyboardButton(text="🔞 CLICK HERE AND JOIN OUR ADULT CHANNEL",url="https://t.me/+83dNsgyhMmI4OTNk")]
         )
     else:
         btn.append(
             [InlineKeyboardButton(text="🗓 1/1", callback_data="pages")]
         )
         btn.insert(0,
-            [InlineKeyboardButton(text="🔞 JOIN OUR ADULT CHANNEL 🔞",url="https://t.me/+83dNsgyhMmI4OTNk")]
+            [InlineKeyboardButton(text="🔞 CLICK HERE AND JOIN OUR ADULT CHANNEL",url="https://t.me/+83dNsgyhMmI4OTNk")]
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
@@ -771,7 +771,7 @@ async def advantage_spell_chok(msg):
     movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
-        k = await msg.reply("My love, I couldn't find any movie related to that. Please check your spellings...")
+        k = await msg.reply("My love, I couldn't find any movie related to that. Please check your spellings... if its still unavailable, then use @mcrequestbot to request for it.")
         await asyncio.sleep(15)
         await k.delete()
         return
